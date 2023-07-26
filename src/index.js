@@ -55,5 +55,3 @@ function toReadable(number) {
     }
     return hundredOutput+tensOutput+onesOutput;
 }
-
-console.log(toReadable(666));
