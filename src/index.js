@@ -1,4 +1,4 @@
-function toReadable(number) {
+module.exports = function toReadable(number) {
     let hundredOutput = '';
     let tensOutput = '';
     let onesOutput = '';
@@ -15,7 +15,7 @@ function toReadable(number) {
             case 8: hundredOutput = 'eight'; break;
             case 9: hundredOutput = 'nine'; break;
         }
-        hundredOutput += ' hundreed';
+        hundredOutput += ' hundred';
         number -= hundredCount*100;
     }
     if (number >= 20) {
@@ -23,7 +23,7 @@ function toReadable(number) {
         switch (tenCount) {
             case 2: tensOutput = ' twenty'; break;
             case 3: tensOutput = ' thirty'; break;
-            case 4: tensOutput = ' fourty'; break; 
+            case 4: tensOutput = ' forty'; break; 
             case 5: tensOutput = ' fifty'; break;
             case 6: tensOutput = ' sixty'; break;
             case 7: tensOutput = ' seventy'; break;
@@ -53,5 +53,7 @@ function toReadable(number) {
         case 18: onesOutput=' eighteen'; break;
         case 19: onesOutput=' nineteen'; break;
     }
-    return hundredOutput+tensOutput+onesOutput;
+    res=(hundredOutput+tensOutput+onesOutput).trim();
+    if (res) return res;
+    else return 'zero';
 }
